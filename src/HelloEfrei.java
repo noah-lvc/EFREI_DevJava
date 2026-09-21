@@ -13,6 +13,6 @@ public class HelloEfrei {
         Programmeur alex = new Programmeur("Dupont", "Aex", "Python", 45000);
 
 
-        alice.afficher(alex);
+        alice.afficher();
     }
 }

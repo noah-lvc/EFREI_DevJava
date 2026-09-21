@@ -12,7 +12,7 @@ public class Programmeur {
         this.salaire = salaire;
     }
 
-    void afficher(Programmeur programmeur){
-        System.out.println("Prénom : " + programmeur.prenomAlice);
+    void afficher(){
+        System.out.println("Prénom : " + prenomAlice);
     }
 }
