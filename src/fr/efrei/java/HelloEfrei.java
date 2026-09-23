@@ -16,25 +16,60 @@ public class HelloEfrei {
         Programmeur alice =
                 new Programmeur("Martin", "Alice", "Java", 42000);
         Programmeur alex =
-                new Programmeur("Dupont", "Aex", "Python", 45000);
+                new Programmeur("Dupont", "Alex", "Python", 45000);
 
         //alice.afficher();
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Entrez le nom");
-        String nom = scanner.nextLine();
+            while (true) {
+                init_menu();
+                int choix = scanner.nextInt();
 
-        System.out.println("Entrez le prenom");
-        String prenom = scanner.nextLine();
+                switch (choix) {
+                    case 1:
+                        alice.afficher();
+                        break;
+                    case 2:
+                        alex.afficher();
+                        break;
+                    case 3: {
+                        Scanner scannerProgrammeur = new Scanner(System.in);
 
-        System.out.println("Entrez le language préféré");
-        String language = scanner.nextLine();
+                        System.out.println("Entrez le nom");
+                        String nom = scannerProgrammeur.nextLine();
 
-        System.out.println("Entrez le salaire");
-        double salaire = scanner.nextDouble();
+                        System.out.println("Entrez le prenom");
+                        String prenom = scannerProgrammeur.nextLine();
 
-        Programmeur progrmmeur = new Programmeur(nom, prenom, language, salaire);
-        progrmmeur.afficher();
-    }
+                        System.out.println("Entrez le language préféré");
+                        String language = scannerProgrammeur.nextLine();
+
+                        System.out.println("Entrez le salaire");
+                        double salaire = scannerProgrammeur.nextDouble();
+
+                        Programmeur progrmmeur = new Programmeur(nom, prenom, language, salaire);
+                        progrmmeur.afficher();
+                        break;
+                    }
+                    case 0:
+                        return;
+                    default:
+                        System.out.println("Choix invalide");
+                        break;
+
+                }
+
+            }
+        }
+        public static void init_menu(){
+            System.out.println("================" +
+                    "\nGESTION DES PROGRAMMEURS" +
+                    "\n================" +
+                    "\n\n1- Afficher Alice" +
+                    "\n2- Afficher Alex" +
+                    "\n3- Ajouter Programmeur" +
+                    "\n0- Quitter" +
+                    "\n\nVotre Choix : ");
+        }
 }
