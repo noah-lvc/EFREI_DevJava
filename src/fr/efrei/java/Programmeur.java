@@ -14,6 +14,10 @@ public class Programmeur {
         this.salaire = salaire;
     }
 
+    public void augmenterSalaire(int augmentation){
+        salaire += salaire * ((double) augmentation /100);
+    }
+
     void afficher(){
         System.out.println("Nom : " + nom);
         System.out.println("Prénom : " + prenom);
