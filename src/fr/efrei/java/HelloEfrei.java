@@ -6,19 +6,11 @@ public class HelloEfrei {
 
     static void main() {
 
-        //String nomAlice = "Martin";
-        //String prenomAlice = "Alice";
-        //String languePreferee = "Java";
-        //double salaire = 42000;
-
-        //System.out.println("Prénom " + prenomAlice + " Nom " + nomAlice);
-
         Programmeur alice =
-                new Programmeur("Martin", "Alice", "Java", 42000);
+                new Programmeur("Martin", "Alice", "Java", 100);
         Programmeur alex =
                 new Programmeur("Dupont", "Alex", "Python", 45000);
 
-        //alice.afficher();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -28,6 +20,9 @@ public class HelloEfrei {
 
                 switch (choix) {
                     case 1:
+                        alice.afficher();
+                        System.out.println("augmentation de 5%");
+                        alice.augmenterSalaire(5);
                         alice.afficher();
                         break;
                     case 2:
@@ -50,6 +45,7 @@ public class HelloEfrei {
 
                         Programmeur progrmmeur = new Programmeur(nom, prenom, language, salaire);
                         progrmmeur.afficher();
+                        scannerProgrammeur.close();
                         break;
                     }
                     case 0:
@@ -59,17 +55,19 @@ public class HelloEfrei {
                         break;
 
                 }
-
             }
         }
         public static void init_menu(){
-            System.out.println("================" +
-                    "\nGESTION DES PROGRAMMEURS" +
-                    "\n================" +
-                    "\n\n1- Afficher Alice" +
-                    "\n2- Afficher Alex" +
-                    "\n3- Ajouter Programmeur" +
-                    "\n0- Quitter" +
-                    "\n\nVotre Choix : ");
+            System.out.println("""
+                    ========================
+                    GESTION DES PROGRAMMEURS
+                    ========================
+                    
+                    1- Afficher Alice
+                    2- Afficher Alex
+                    3- Ajouter Programmeur
+                    0- Quitter
+                    
+                    Votre Choix :\s""");
         }
 }
