@@ -1,27 +1,56 @@
 package fr.efrei.java;
 
-public class Programmeur {
+import java.util.Scanner;
 
-    String nom;
-    String prenom;
+public class Programmeur extends Collaborateur implements Formateur{
+
     String languePreferee;
-    double salaire;
 
-    public Programmeur(String nom, String prenom, String languePreferee, double salaire) {
-        this.nom = nom;
-        this.prenom = prenom;
+    public Programmeur(String nom, String prenom, String languePreferee, double salaire, Adresse adresse) {
+        super(nom, prenom, salaire, adresse);
         this.languePreferee = languePreferee;
-        this.salaire = salaire;
     }
 
-    public void augmenterSalaire(int augmentation){
-        salaire += salaire * ((double) augmentation /100);
+    public Programmeur(Scanner scanner){
+        scanner.nextLine();
+
+        System.out.println("Entrez le nom");
+        String nom = scanner.nextLine();
+
+        System.out.println("Entrez le prenom");
+        String prenom = scanner.nextLine();
+
+        System.out.println("Entrez le language préféré");
+        this.languePreferee = scanner.nextLine();
+
+        System.out.println("Entrez le salaire");
+        double salaire = scanner.nextDouble();
+
+        super(nom, prenom, salaire, new Adresse(scanner));
     }
 
-    void afficher(){
-        System.out.println("Nom : " + nom);
-        System.out.println("Prénom : " + prenom);
-        System.out.println("Language : " + languePreferee);
-        System.out.println("Salaire : " + salaire);
+    public void augmenterSalaire(double augmentation){
+        salaire += salaire * (augmentation /100);
+        if (salaire < 0) {
+            salaire = 0;
+        }
+    }
+
+    @Override
+    public void former(){
+
+    }
+
+    @Override
+    public void travailler(){
+        System.out.println(prenom + " développe une fonctionnalité.");
+    }
+
+    public String getLanguePreferee() {
+        return languePreferee;
+    }
+
+    public void setLanguePreferee(String languePreferee) {
+        this.languePreferee = languePreferee;
     }
 }
